@@ -1,4 +1,4 @@
-package com.example.sampleapplication;
+package com.example.sample;
 
 /**
  * Created by other on 2017/10/05.
