@@ -21,3 +21,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task writeCopyrights {
+
+    println("--------------------------------------------------------------------------------------------------------")
+    println("- ")
+    println("- (c) 2017 ◯◯◯ Corporation. All Rights Reserved.")
+    println("- ")
+    println("--------------------------------------------------------------------------------------------------------")
+}
