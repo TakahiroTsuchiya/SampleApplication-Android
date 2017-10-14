@@ -4,22 +4,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.example.sample.databinding.RecyclerListCellBinding;
 
 /**
  * Created by other on 2017/10/13.
  */
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class MainAdapter extends RecyclerView.Adapter<MainAdapter.BindingViewHolder> {
 
     private String[] mDataSet;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class BindingViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mTextView;
-        public ViewHolder(TextView itemView) {
+        RecyclerListCellBinding binding;
+
+        public BindingViewHolder(View itemView) {
             super(itemView);
-            mTextView = itemView;
+            this.binding = RecyclerListCellBinding.bind(itemView);
         }
     }
 
@@ -28,15 +30,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_list_cell_view, parent, false);
-        return new ViewHolder(v);
+    public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_list_cell, parent, false);
+
+        return new BindingViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(this.mDataSet[position]);
+    public void onBindViewHolder(BindingViewHolder holder, int position) {
+        Users user = new Users();
+        user.profile_image_url = "https://randomuser.me/api/portraits/women/" + (55 + position) + ".jpg";
+        user.name = this.mDataSet[position];
+        holder.binding.setUser(user);
     }
 
     @Override
