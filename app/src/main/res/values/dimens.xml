@@ -1,0 +1,12 @@
+<resources>
+
+    <dimen name="text_tiny">4dp</dimen>
+    <dimen name="text_small">8dp</dimen>
+    <dimen name="text_medium">16dp</dimen>
+    <dimen name="text_large">32dp</dimen>
+    <dimen name="text_huge">64dp</dimen>
+
+    <dimen name="image_thumbnail_size">100dp</dimen>
+    <dimen name="image_thumbnail_spacing">1dp</dimen>
+
+</resources>

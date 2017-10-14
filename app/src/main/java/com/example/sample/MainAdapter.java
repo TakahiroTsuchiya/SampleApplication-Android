@@ -16,10 +16,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mTextView;
-        public ViewHolder(TextView itemView) {
+        // profile_image
+        public TextView nameTextView;
+
+        public ViewHolder(View itemView) {
             super(itemView);
-            mTextView = itemView;
+            nameTextView = itemView.findViewById(R.id.name);
         }
     }
 
@@ -29,14 +31,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_list_cell_view, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(this.mDataSet[position]);
+        holder.nameTextView.setText(this.mDataSet[position]);
     }
 
     @Override
