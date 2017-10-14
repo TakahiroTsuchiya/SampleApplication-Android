@@ -1,10 +1,8 @@
 package com.example.sample;
 
 import android.databinding.BindingAdapter;
-import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -34,7 +32,7 @@ public class DataBindingAdapterUtils {
 
     @BindingAdapter("android:src")
     public static void setImageUri(ImageView view, Uri imageUri) {
-        view.setImageURI(imageUri);
+        Picasso.with(view.getContext()).load(imageUri).into(view);
     }
 
     @BindingAdapter("android:src")
