@@ -1,5 +1,7 @@
 package com.example.sample;
 
+import com.example.sample.api.qiita.model.Users;
+
 import org.junit.Test;
 
 import java.io.IOException;

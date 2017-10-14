@@ -1,5 +1,7 @@
 package com.example.sample;
 
+import com.example.sample.api.qiita.model.Users;
+
 import java.util.List;
 
 import retrofit2.Call;
