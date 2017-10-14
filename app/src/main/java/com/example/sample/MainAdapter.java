@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import com.example.sample.api.qiita.model.Users;
 import com.example.sample.databinding.RecyclerListCellBinding;
 
+import java.util.List;
+
 /**
  * Created by other on 2017/10/13.
  */
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.BindingViewHolder> {
 
-    private String[] mDataSet;
+    private List<Users> usersList;
 
     public static class BindingViewHolder extends RecyclerView.ViewHolder {
 
@@ -26,8 +28,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.BindingViewHol
         }
     }
 
-    public MainAdapter(String[] dataSet) {
-        this.mDataSet = dataSet;
+    public MainAdapter(List<Users> dataSet) {
+        this.usersList = dataSet;
     }
 
     @Override
@@ -40,14 +42,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.BindingViewHol
 
     @Override
     public void onBindViewHolder(BindingViewHolder holder, int position) {
-        Users user = new Users();
-        user.profile_image_url = "https://randomuser.me/api/portraits/women/" + (55 + position) + ".jpg";
-        user.name = this.mDataSet[position];
-        holder.binding.setUser(user);
+        holder.binding.setUser(this.usersList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return this.mDataSet.length;
+        int itemCount = 0;
+        if (usersList != null) {
+            itemCount = usersList.size();
+        }
+        return itemCount;
     }
 }

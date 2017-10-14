@@ -13,6 +13,8 @@ import retrofit2.http.GET;
 
 public interface QiitaService {
 
+    public static final String END_POINT = "https://qiita.com/api/v2/";
+
     @GET("users")
     Call<List<Users>> getUsers();
 }

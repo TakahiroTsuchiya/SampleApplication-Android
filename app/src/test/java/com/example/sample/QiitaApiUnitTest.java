@@ -23,7 +23,7 @@ public class QiitaApiUnitTest {
         System.err.println("callApi START --------------------------------------------");
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://qiita.com/api/v2/")
+                .baseUrl(QiitaService.END_POINT)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
