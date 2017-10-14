@@ -5,8 +5,7 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.example.sampleapplication"
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion 15        /* ICE_CREAM_SANDWICH_MR1 */
         versionCode 10000001
         versionName "0.00.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
