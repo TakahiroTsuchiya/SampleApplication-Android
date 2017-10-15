@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.sample.api.qiita.model.Users;
 import com.example.sample.databinding.RecyclerListCellBinding;
@@ -32,12 +33,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.BindingViewHol
         this.usersList = dataSet;
     }
 
+    protected void onClicked(int position) {
+    }
+
     @Override
-    public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BindingViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_list_cell, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_list_cell, parent, false);
 
-        return new BindingViewHolder(v);
+        final BindingViewHolder holder = new BindingViewHolder(view);
+
+        holder.binding.recyclerViewBase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int position = holder.getAdapterPosition();
+                onClicked(position);
+            }
+        });
+        return holder;
     }
 
     @Override
