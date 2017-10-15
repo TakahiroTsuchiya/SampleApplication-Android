@@ -79,7 +79,7 @@ public class QiitaApiUnitTest {
         QiitaService service = retrofit.create(QiitaService.class);
 
         Response<Users> result = null;
-        String userId = "207414";
+        String userId = "osm2osm";
 
         try {
 
