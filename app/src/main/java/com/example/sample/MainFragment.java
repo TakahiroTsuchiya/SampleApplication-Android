@@ -3,12 +3,14 @@ package com.example.sample;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sample.api.qiita.QiitaService;
 import com.example.sample.api.qiita.model.Users;
 
 import java.util.List;
@@ -40,6 +42,7 @@ public class MainFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        mRecyclerView.addItemDecoration(new RecyclerListCellDecoration(ContextCompat.getDrawable(mRecyclerView.getContext(), R.drawable.divider)));
 
         // TODO: out resource. need AsyncTask ?
         Retrofit retrofit = new Retrofit.Builder()
