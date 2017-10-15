@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_main"
-    android:name="com.example.sample.MainFragment"
+    android:name="com.example.sample.ListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout="@layout/fragment_main"
+    tools:layout="@layout/fragment_list"
     />

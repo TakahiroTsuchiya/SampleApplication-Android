@@ -4,33 +4,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <data>
-       <variable name="user" type="com.example.sample.Users" />
+       <variable name="user" type="com.example.sample.api.qiita.model.Users" />
     </data>
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/recyclerViewBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_margin="18dp"
+            android:contentDescription="@string/avator_content_escription"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/app_name"
-            android:src="@{user.profile_image_url}"
-            />
+            android:src="@{user.profile_image_url}" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="18dp"
+            android:layout_marginTop="18dp"
             android:text="@{user.name}"
-            android:textSize="40sp"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/profile_image"
+            app:layout_constraintRight_toLeftOf="@+id/arrow_open" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="18dp"
+            android:text="@{user.description}"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/profile_image"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintRight_toLeftOf="@+id/arrow_open" />
+
+        <ImageView
+            android:id="@+id/arrow_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_arrow_open"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintRight_toRightOf="parent"
+            android:contentDescription="@string/arrow_open_content_escription"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp" />
 
     </android.support.constraint.ConstraintLayout>
 

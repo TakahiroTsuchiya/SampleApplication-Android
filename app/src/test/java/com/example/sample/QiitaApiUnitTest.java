@@ -1,5 +1,8 @@
 package com.example.sample;
 
+import com.example.sample.api.qiita.QiitaService;
+import com.example.sample.api.qiita.model.Users;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,12 +19,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class QiitaApiUnitTest {
 
     @Test
-    public void callApi() {
+    public void callApiUsersList() {
 
-        System.err.println("callApi START --------------------------------------------");
+        System.err.println("callApiUsersList START --------------------------------------------");
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://qiita.com/api/v2/")
+                .baseUrl(QiitaService.END_POINT)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -60,6 +63,53 @@ public class QiitaApiUnitTest {
             }
         }
 
-        System.err.println("callApi END   --------------------------------------------");
+        System.err.println("callApiUsersList END   --------------------------------------------");
+    }
+
+    @Test
+    public void callApiUserDetail() {
+
+        System.err.println("callApiUserDetail START --------------------------------------------");
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(QiitaService.END_POINT)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        QiitaService service = retrofit.create(QiitaService.class);
+
+        Response<Users> result = null;
+        String userId = "osm2osm";
+
+        try {
+
+            result = service.getUserDetail(userId).execute();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (result.body() != null) {
+
+            Users users = result.body();
+
+            System.err.println(users.description);
+            System.err.println(users.faceboo_id);
+            System.err.println(users.followees_count);
+            System.err.println(users.followers_count);
+            System.err.println(users.github_login_name);
+            System.err.println(users.id);
+            System.err.println(users.items_count);
+            System.err.println(users.linkedin_id);
+            System.err.println(users.location);
+            System.err.println(users.name);
+            System.err.println(users.organization);
+            System.err.println(users.permanent_id);
+            System.err.println(users.profile_image_url);
+            System.err.println(users.twitter_screen_name);
+            System.err.println(users.website_url);
+        }
+
+        System.err.println("callApiUserDetail END   --------------------------------------------");
     }
 }
