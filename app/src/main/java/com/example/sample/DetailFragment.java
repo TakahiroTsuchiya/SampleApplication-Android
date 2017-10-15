@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sample.api.qiita.model.Users;
 import com.example.sample.databinding.FragmentDetailBinding;
 
 /**
@@ -33,8 +34,12 @@ public class DetailFragment extends Fragment {
 
             String userId = intent.getStringExtra("userId");
 
-            Log.d(TAG, "@@@@@@@@@@@@@ userId : " + userId + "@@@@@@@@@@@@@");
+            Users user = new Users();
 
+            user.name = userId;
+            user.description = "";
+
+            bind.setUser(user);
         }
 
         return rootView;

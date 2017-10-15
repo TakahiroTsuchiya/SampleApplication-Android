@@ -73,8 +73,6 @@ public class ListFragment extends Fragment {
                         @Override
                         protected void onClicked(int position) {
                             super.onClicked(position);
-                            Toast.makeText(getContext(), "[" + position + "] " + usersList.get(position).id, Toast.LENGTH_SHORT).show();
-
                             Intent intent = new Intent(getActivity(), DetailActivity.class);
                             String userId = usersList.get(position).id;
                             intent.putExtra("userId", userId);

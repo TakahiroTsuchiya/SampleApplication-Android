@@ -12,16 +12,60 @@
         tools:context="com.example.sample.DetailFragment"
         tools:showIn="@layout/activity_detail">
 
-        <TextView
-            android:id="@+id/detail_user_id"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@{user.id}"
-            />
+        <android.support.v7.widget.CardView
+            android:id="@+id/detail_card_view"
+            android:layout_width="395dp"
+            android:layout_height="587dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                >
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:id="@+id/detail_user_photo"
+                    android:contentDescription="@string/avator_content_description"
+                    android:src="@{user.profile_image_url}"/>
+
+                <TextView
+                    android:id="@+id/detail_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/detail_user_photo"
+                    android:layout_toEndOf="@+id/detail_user_photo"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toTopOf="@+id/detail_user_photo"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_description"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_user_photo"
+                    app:layout_constraintLeft_toRightOf="@+id/detail_user_photo"
+                    android:text="@{user.name}"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/detail_user_photo"
+                    android:layout_toRightOf="@+id/detail_user_photo"
+                    android:layout_toEndOf="@+id/detail_user_photo"
+                    android:layout_below="@+id/detail_user_name"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toTopOf="@+id/detail_user_name"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_user_photo"
+                    android:text="@{user.description}"
+                    />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

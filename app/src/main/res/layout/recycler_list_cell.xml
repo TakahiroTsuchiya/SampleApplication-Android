@@ -16,7 +16,7 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="18dp"
-            android:contentDescription="@string/avator_content_escription"
+            android:contentDescription="@string/avator_content_description"
             android:scaleType="centerCrop"
             android:src="@{user.profile_image_url}" />
 
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:contentDescription="@string/arrow_open_content_escription"
+            android:contentDescription="@string/arrow_open_content_description"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp" />
 

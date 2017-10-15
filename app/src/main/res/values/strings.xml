@@ -2,8 +2,8 @@
     <string name="app_name">Sample Application-Android</string>
 
     <!-- List Image's content description. -->
-    <string name="avator_content_escription"></string>
-    <string name="arrow_open_content_escription"></string>
+    <string name="avator_content_description"></string>
+    <string name="arrow_open_content_description"></string>
 
     <string name="action_settings">Settings</string>
 
